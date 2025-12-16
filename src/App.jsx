@@ -1,14 +1,17 @@
+import CodingExperience from "./components/CodingExperience";
+import { Routes, Route } from "react-router";
+import Information from "./components/Information";
 import gsap from "gsap";
-import Main from "./components/Main";
-import Project from "./components/Project";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
 function App() {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText, ScrollTrigger);
   return (
     <main>
-      <Main />
-      <Project />
+      <Routes>
+        <Route path="/" element={<CodingExperience />} />
+        <Route path="/main-page" element={<Information />} />
+      </Routes>
     </main>
   );
 }
