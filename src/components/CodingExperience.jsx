@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
+import gsap from "gsap";
 const CodingExperience = () => {
   const codeRef = useRef(null);
   const cursorRef = useRef(null);
   const hasTyped = useRef(false);
-
+  const containerRef = useRef(null);
   let navigate = useNavigate();
 
   const codeString = `def IntrodureSelf():
@@ -21,6 +22,7 @@ IntrodureSelf()`;
 
     const codeElement = codeRef.current;
     const cursorElement = cursorRef.current;
+    const containerElement = containerRef.current;
     codeElement.innerHTML = "";
 
     let index = 0;
@@ -31,17 +33,29 @@ IntrodureSelf()`;
         codeElement.innerHTML +=
           char === "\n" ? "<br>" : char === " " ? "&nbsp;" : char;
         index++;
-        setTimeout(type, 51);
+        setTimeout(type, 18);
       } else {
-        cursorElement.style.display = "none";
-        navigate("/main-page");
+        const blink = gsap.to(cursorElement, {
+          duration: 0.5,
+          opacity: 0,
+          repeat: -1,
+          yoyo: true,
+        });
+        setTimeout(() => {
+          blink.kill();
+          cursorElement.style.display = "none";
+          navigate("/main-page");
+        }, 3000);
       }
     }
     type();
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center justify-center min-h-screen p-4"
+    >
       <div
         className="font-googlecode text-cyan-300 md:text-3xl md:font-medium text-base font-medium
       relative w-full max-w-xl shadow-xl shadow-cyan-200 p-5 leading-relaxed whitespace-pre-wrap"
