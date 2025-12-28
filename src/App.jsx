@@ -9,6 +9,7 @@ import {
   SplitText,
 } from "gsap/all";
 import Experience from "./components/3DExperience/Experience";
+import Resume from "./components/Resume";
 
 function App() {
   gsap.registerPlugin(SplitText, ScrollTrigger, ScrambleTextPlugin, CustomEase);

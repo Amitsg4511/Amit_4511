@@ -1,17 +1,28 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useMediaQuery } from "react-responsive";
 import Light from "./Light";
+import { redirect, useNavigate } from "react-router";
 
-export default function Model() {
+export default function Model({ modalState }) {
   const { camera } = useThree();
   const controls = useRef();
   const groupRef = useRef();
   const gltf = useGLTF("/models/MyRoom-v1.glb");
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  useEffect(() => {
+    gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        child.material.depthWrite = true;
+      }
+      if (child.isMesh && child.name.includes("Raycaster")) {
+        child.userData.interactive = true;
+      }
+    });
+  }, [gltf]);
 
   useEffect(() => {
     let floor = null;
@@ -54,14 +65,74 @@ export default function Model() {
     scale *= 0.9;
   }
 
+  //// constants
+  const COLORS = [
+    "#00FFFF", // cyan
+    "#FF0080", // magenta
+    "#FFD700", // gold
+    "#00FF7F", // spring green
+    "#FF4500", // orange red
+    "#1E90FF", // dodger blue
+    "#ADFF2F", // green yellow
+    "#FF69B4", // hot pink
+    "#7B68EE", // medium slate blue
+    "#00CED1", // dark turquoise
+    "#FF6347", // tomato
+    "#40E0D0", // turquoise
+    "#C71585", // medium violet red
+    "#F4A460", // sandy brown
+  ];
+
+  //////////
+  function handleClicks(e) {
+    e.stopPropagation();
+    const mesh = e.object;
+    if (mesh.userData.interactive) {
+    }
+    if (mesh.userData.interactive && mesh.name === "Resume_Raycaster_1") {
+      console.log(modalState(true));
+    } else if (
+      mesh.userData.interactive &&
+      mesh.name === "SocialMedia_Raycaster"
+    ) {
+      window.open("https://www.github.com", "_blank", "noopener,noreferrer");
+    } else if (
+      mesh.userData.interactive &&
+      mesh.name === "SocialMedia_Raycaster_3"
+    ) {
+      window.open("https://www.linkedin.com", "_blank", "noopener,noreferrer");
+    } else if (
+      mesh.userData.interactive &&
+      mesh.name === "SocialMedia_Raycaster_4"
+    ) {
+      window.open("https://www.chess.com/", "_blank", "noopener,noreferrer");
+    } else if (
+      mesh.userData.interactive &&
+      mesh.name === "BabyTintin_Raycaster"
+    ) {
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      mesh.material.color.set(color);
+    }
+  }
+  function handlePointer(e) {
+    e.stopPropagation();
+    if (!e.object.userData.interactive) {
+      document.body.style.cursor = "default";
+      return;
+    }
+    document.body.style.cursor = "pointer";
+  }
   return (
     <>
-      <Light />
-
-      <group ref={groupRef} scale={scale}>
+      ( <Light />
+      <group
+        ref={groupRef}
+        scale={scale}
+        onClick={handleClicks}
+        onPointerEnter={handlePointer}
+      >
         <primitive object={gltf.scene} />
       </group>
-
       <OrbitControls
         ref={controls}
         enableDamping
@@ -80,6 +151,7 @@ export default function Model() {
         rotateSpeed={0.45}
         zoomSpeed={0.5}
       />
+      )
     </>
   );
 }
