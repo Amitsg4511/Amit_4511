@@ -20,16 +20,6 @@ export default function Model({ modalState, isDay, setModalName }) {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const originalState = useRef(new Map());
 
-  // useEffect(() => {
-  //   gltf.scene.traverse((mesh) => {
-  //     if (!mesh.isMesh) return;
-  //     if (mesh.name.includes("Raycaster")) {
-  //       mesh.userData.interactive = true;
-  //     }
-  //   });
-  // }, [gltf]);
-  //// constants
-
   useEffect(() => {
     gltf.scene.traverse((mesh) => {
       if (!mesh.isMesh) return;
@@ -55,7 +45,7 @@ export default function Model({ modalState, isDay, setModalName }) {
       if (isDay) {
         mesh.material = original.material;
         mesh.visible = original.visible;
-        return; // ⬅️ VERY IMPORTANT
+        return; // VERY IMPORTANT
       }
 
       // ---------------- NIGHT MODE ----------------

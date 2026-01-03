@@ -1,14 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import { Suspense, useEffect, useState } from "react";
-import Night from "../../assets/svg/night.svg";
-import Morning from "../../assets/svg/morning.svg";
-import MusicOffNight from "../../assets/svg/music-off-night.svg";
-import MusicOffMorning from "../../assets/svg/music-off-morning.svg";
-import MusicOnNight from "../../assets/svg/music-on-night.svg";
-import MusicOnMorning from "../../assets/svg/music-on-morning.svg";
-import useBackgroundMusic from "../../utils/BackgroundMusic";
-import mountainMusic from "../../assets/music/mountains.mp3";
 import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import { useMediaQuery } from "react-responsive";
@@ -17,32 +9,20 @@ import AboutMeModal from "../modal/AboutMeModal";
 import NowModal from "../modal/NowModal";
 import SkillsModal from "../modal/SkillsModal";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
+import LoadingScreen from "../Loading";
+import Theme from "../Theme";
+import Music from "../Music";
+
 export default function Experience() {
-  const [isModalOpen, setModalState] = useState(false);
   const [isDay, setDayNightState] = useState(true);
-  const [isMusicOn, setMusicState] = useState(false);
-  const music = useBackgroundMusic(mountainMusic);
+  const [isModalOpen, setModalState] = useState(false);
   const [modalName, setModalName] = useState("Resume");
+  const [isSceneReady, setSceneState] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   function handleModalState() {
     setModalState(false);
   }
-
-  function handleDayNightState() {
-    setDayNightState((prevDayState) => !prevDayState);
-  }
-  function handleMusicState() {
-    setMusicState((prevMusicState) => !prevMusicState);
-  }
-  useEffect(() => {
-    if (isMusicOn) {
-      music.current.play();
-    } else {
-      music.current.pause();
-    }
-  }, [isMusicOn]);
-
+  console.log("isready", isSceneReady);
   function decideModal() {
     if (modalName === "Resume") {
       return <ResumeModal handleModalState={handleModalState} isDay={isDay} />;
@@ -62,86 +42,22 @@ export default function Experience() {
           : "bg-linear-to-r from-[#0f172a]  to-[#334155]"
       }`}
     >
-      <div
-        className="
-      fixed z-50
+      {isSceneReady && (
+        <div
+          className="
+      fixed
       inset-x-0 top-14
       flex justify-center
       md:inset-auto md:right-14 md:top-14
-      gap-5
+      gap-5 z-10
     "
-      >
-        <div
-          className={`
-        p-2
-        rounded-2xl
-        ${isDay ? "bg-orange-500" : "bg-gray-700"}
-        backdrop-blur-lg
-        shadow-xl shadow-black/40
-        hover:rotate-3 hover:scale-125 
-        transition-transform duration-300
-      `}
         >
-          <button
-            onClick={handleDayNightState}
-            className={`
-          p-2
-          rounded-xl
-          ${isDay ? "bg-orange-300" : "bg-zinc-900"}
-          hover:transition-all duration-300
-        `}
-          >
-            <img
-              src={isDay ? Morning : Night}
-              alt="Day Night Toggle"
-              className="
-                w-14 h-14"
-            />
-          </button>
+          <Theme setDayNightState={setDayNightState} isDay={isDay} />
+          <Music isDay={isDay} />
         </div>
-        <div
-          className={`
-        p-2
-        rounded-2xl
-        ${isDay ? "bg-orange-500" : "bg-gray-700"}
-        backdrop-blur-lg
-        shadow-xl shadow-black/40
-        hover:rotate-3 hover:scale-125 
-        transition-transform duration-300
-      `}
-        >
-          <button
-            onClick={handleMusicState}
-            className={`
-          p-2
-          rounded-xl
-          ${isDay ? "bg-orange-300" : "bg-zinc-900"}
-          hover:transition-all duration-300
-        `}
-          >
-            {isMusicOn ? (
-              <img
-                src={isDay ? MusicOnMorning : MusicOnNight}
-                alt="Music On Off Toggle"
-                className="
-                w-14 h-14"
-              />
-            ) : (
-              <img
-                src={isDay ? MusicOffMorning : MusicOffNight}
-                alt="Music On Off Toggle"
-                className="
-                w-14 h-14"
-              />
-            )}
-          </button>
-        </div>
-      </div>
+      )}
 
-      {/* MODAL */}
       {isModalOpen && decideModal()}
-
-      {/* 3D SCENE */}
       <Canvas
         camera={{ fov: 25 }}
         className="absolute inset-0"
@@ -153,22 +69,28 @@ export default function Experience() {
         {!isMobile && <Perf position="top-left" />}
         {!isDay && (
           <EffectComposer>
-            <Bloom
-              intensity={0.3}
-              luminanceThreshold={1}
-              mipmapBlur={false} // Enables or disables mipmap blur.
-            />
+            <Bloom intensity={0.3} luminanceThreshold={1} mipmapBlur={true} />
           </EffectComposer>
         )}
 
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingScreen />}>
           <Model
             modalState={setModalState}
             isDay={isDay}
             setModalName={setModalName}
           />
+          <SceneReady onReady={() => setSceneState(true)} />
         </Suspense>
       </Canvas>
     </div>
   );
+}
+
+function SceneReady({ onReady }) {
+  console.log(onReady);
+  useEffect(() => {
+    onReady();
+  }, [onReady]);
+
+  return null;
 }
