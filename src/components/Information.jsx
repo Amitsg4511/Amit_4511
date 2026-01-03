@@ -7,7 +7,7 @@ import Button from "./Button";
 function Information() {
   const containerRef = useRef(null);
   const welcomeTextRef = useRef(null);
-  const experienceRef = useRef(null);
+  const exploreExperienceRef = useRef(null);
   useGSAP(
     () => {
       const containerElement = containerRef.current;
@@ -31,8 +31,8 @@ function Information() {
   );
   useGSAP(
     () => {
-      if (!experienceRef.current) return;
-      gsap.set(experienceRef.current, { opacity: 0 });
+      if (!exploreExperienceRef.current) return;
+      gsap.set(exploreExperienceRef.current, { opacity: 0 });
       if (!welcomeTextRef) return;
       const splitText = SplitText.create(welcomeTextRef.current, {
         type: "chars",
@@ -58,20 +58,16 @@ function Information() {
       className="relative h-full w-full flex lg:p-5 p-3"
       style={{ clipPath: "polygon(51% 0, 51% 0%, 51% 100%, 51% 100%)" }}
     >
-      <div
-        className="flex flex-col lg:p-5 p-3
-      items-center-safe justify-center-safe w-full
-      "
-      >
+      <div className="flex flex-col items-center-safe md:justify-center-safe w-full max-sm:mt-5      ">
         <div
           ref={welcomeTextRef}
-          className="relative inline-block group uppercase"
+          className="relative inline-block group uppercase md:bottom-9"
         >
           <div
             aria-hidden
             className="
                 absolute -inset-1 bg-linear-to-r from-cyan-300 via-emerald-400 to-cyan-500
-                blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-300"
+                blur opacity-90 group-hover:opacity-100 transition duration-1000 group-hover:duration-300"
           />
           <h1
             className="relative px-5 bg-black rounded-xl font-Sekuya
@@ -79,7 +75,6 @@ function Information() {
               lg:text-[4rem] md:text-[3rem] text-3xl py-3
               transition duration-300
               group-hover:text-cyan-300
-            drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]
                 [-webkit-text-stroke:1.5px_#3AF2EE]
                  "
           >
@@ -87,14 +82,26 @@ function Information() {
           </h1>
         </div>
 
-        <div className="lg:max-w-[51%] max-w-[95%] justify-center items-center lg:mt-14 md:mt-9 mt-5 font-merienda lg:text-3xl text-xl p-3 lg:p-5">
-          <ScrambleText experienceRef={experienceRef} />
+        <div className="lg:max-w-[51%] max-w-[95%] w-full justify-center items-center lg:mt-14 md:mt-9 mt-5 font-merienda lg:text-3xl text-xl p-3 lg:p-5">
+          <ScrambleText exploreExperienceRef={exploreExperienceRef} />
         </div>
         <div
-          ref={experienceRef}
-          className="lg:mt-18 md:mt-11 mt-9 md:text-3xl text-xl text-white"
+          ref={exploreExperienceRef}
+          className="lg:mt-14 md:mt-11 mt-5 md:text-3xl text-xl text-white flex flex-col items-center"
         >
-          <Button>Experience</Button>
+          <div className="max-sm:w-1/2 bottom-3 relative">
+            <Button>Explore</Button>
+          </div>
+          <div>
+            <p className="mt-3 text-sm text-cyan-300 font-merienda opacity-80 text-center">
+              <span className="hidden md:inline text-xl">
+                Use mouse drag and scroll wheel to explore
+              </span>
+              <span className="md:hidden">
+                Use one finger to rotate and Two fingers to zoom
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

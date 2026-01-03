@@ -4,7 +4,7 @@ import { CustomEase } from "gsap/all";
 
 import React, { useRef } from "react";
 
-function ScrambleText({ experienceRef }) {
+function ScrambleText({ exploreExperienceRef }) {
   const hiTextRef = useRef(null);
   const nameTextRef = useRef(null);
   const personalSignificanceTextRef = useRef(null);
@@ -92,9 +92,9 @@ function ScrambleText({ experienceRef }) {
               speed: 0.3,
             },
             onComplete: () => {
-              gsap.to(experienceRef.current, {
+              gsap.to(exploreExperienceRef.current, {
                 opacity: 1,
-                delay: 1,
+                delay: 0.51,
                 yPercent: 51,
                 duration: 3,
               });
