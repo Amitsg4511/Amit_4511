@@ -27,7 +27,7 @@ function Music({ isDay }) {
         ${isDay ? "bg-orange-500" : "bg-gray-700"}
         backdrop-blur-lg
         shadow-xl shadow-black/40
-        hover:rotate-3 hover:scale-125 
+        hover:-rotate-14 hover:scale-125 
         transition-transform duration-300 
       `}
     >

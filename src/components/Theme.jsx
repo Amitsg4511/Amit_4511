@@ -1,9 +1,11 @@
 import Night from "../assets/svg/night.svg";
 import Morning from "../assets/svg/morning.svg";
+import { useState } from "react";
 
 function Theme({ setDayNightState, isDay }) {
-  console.log("theme");
+  const [rotated, setRotated] = useState(false);
   function handleDayNightState() {
+    setRotated((preHoverState) => !preHoverState);
     setDayNightState((prevDayState) => !prevDayState);
   }
   return (
@@ -14,7 +16,7 @@ function Theme({ setDayNightState, isDay }) {
           ${isDay ? "bg-orange-500" : "bg-gray-700"}
           backdrop-blur-lg
           shadow-xl shadow-black/40
-          hover:rotate-3 hover:scale-125 
+          hover:rotate-14 hover:scale-125 
           transition-transform duration-300
         `}
     >

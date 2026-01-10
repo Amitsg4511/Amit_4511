@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -7,7 +7,7 @@ const CodingExperience = () => {
   const cursorRef = useRef(null);
   const hasTyped = useRef(false);
   const containerRef = useRef(null);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const codeString = `[amit@linux ~]$ sudo su
 [sudo] password for amit: 
@@ -19,7 +19,7 @@ Amit Kumar
 Software Developer
 
 [root@linux amit]# focus
-Fast, beautiful, meaningful web experiences`;
+Thoughtful, meaningful, beautiful software experiences`;
 
   useGSAP(
     () => {
@@ -55,7 +55,8 @@ Fast, beautiful, meaningful web experiences`;
           setTimeout(() => {
             blink.kill();
             cursorElement.style.display = "none";
-            navigate("/main-page");
+            sessionStorage.setItem("welcome", "welcome");
+            navigate("/welcome");
           }, 3000);
         }
       }
@@ -64,7 +65,9 @@ Fast, beautiful, meaningful web experiences`;
     },
     { scope: containerRef }
   );
-
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
   return (
     <div
       ref={containerRef}

@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import ScrambleText from "./ScrambleText";
 import { SplitText } from "gsap/all";
 import Button from "./Button";

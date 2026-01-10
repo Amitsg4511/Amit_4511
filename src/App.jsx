@@ -9,6 +9,8 @@ import {
   SplitText,
 } from "gsap/all";
 import Experience from "./components/3DExperience/Experience";
+import RouteGuard from "./components/RouteGuard";
+import { Navigate } from "react-router";
 
 function App() {
   gsap.registerPlugin(SplitText, ScrollTrigger, ScrambleTextPlugin, CustomEase);
@@ -16,10 +18,26 @@ function App() {
     <main className="h-full w-full">
       <Routes>
         <Route path="/" element={<CodingExperience />} />
-        <Route path="main-page" element={<Information />} />
-        <Route path="/experience" element={<Experience />} />
+
+        <Route
+          path="/welcome"
+          element={
+            <RouteGuard currentPage="welcome">
+              <Information />
+            </RouteGuard>
+          }
+        />
+
+        <Route
+          path="/experience"
+          element={
+            <RouteGuard currentPage="experience">
+              <Experience />
+            </RouteGuard>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      {/* <Experience /> */}
     </main>
   );
 }

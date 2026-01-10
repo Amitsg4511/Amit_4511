@@ -54,7 +54,8 @@ export default function NowModal({ handleModalState, isDay }) {
 
           <button
             onClick={handleModalState}
-            className="transition w-14 h-14 md:w-18 md:h-18 cursor-pointer"
+            className="transition w-14 h-14 md:w-18 md:h-18 cursor-pointer hover:scale-125 
+              hover:rotate-3"
           >
             {isDay ? (
               <img src={closeButtonMorning} alt="close button" />
@@ -86,26 +87,29 @@ export default function NowModal({ handleModalState, isDay }) {
                   isDay ? "text-amber-100" : "text-white"
                 } font-merienda text-lg md:text-xl leading-relaxed`}
               >
-                Exploring advanced{" "}
-                <span className="text-[#50fef6]">
-                  3D and interactive web experiences
-                </span>{" "}
-                using React Three Fiber and Three.js, with a focus on real-time
-                rendering and user interaction.
-              </p>
-            </div>
-
-            <div className="border border-[#ff7a14]/40 rounded-xl px-4 py-3 bg-black/20">
-              <p
-                className={`${
-                  isDay ? "text-amber-100" : "text-white"
-                } font-merienda text-lg md:text-xl leading-relaxed`}
-              >
-                Experimenting with{" "}
-                <span className="text-[#50fef6]">
-                  lighting, materials, bloom, and performance optimization
-                </span>{" "}
-                to achieve cinematic yet efficient visuals on the web.
+                Exploring advanced 3D and interactive web experiences using{" "}
+                <a
+                  href="https://threejs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#50fef6]"
+                >
+                  Three.js
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://r3f.docs.pmnd.rs/getting-started/introduction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#50fef6]"
+                >
+                  {" "}
+                  React Three Fiber
+                </a>
+                , with a focus on real-time rendering and user interaction.
+                Experimenting with lighting, materials, bloom, and performance
+                optimization to achieve cinematic yet efficient visuals on the
+                web.
               </p>
             </div>
 
@@ -116,8 +120,18 @@ export default function NowModal({ handleModalState, isDay }) {
                 } font-merienda text-lg md:text-xl leading-relaxed`}
               >
                 Refining animation workflows with{" "}
-                <span className="text-[#50fef6]">GSAP</span>, focusing on smooth
-                transitions, micro-interactions, and motion-driven UI behavior.
+                <a
+                  href="https://gsap.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#50fef6]"
+                >
+                  GSAP
+                </a>
+                , focusing on smooth transitions, micro-interactions, and
+                motion-driven UI behavior. Strengthening frontend architecture
+                and code quality by applying best practices for scalability,
+                maintainability, and performance.
               </p>
             </div>
 
@@ -127,25 +141,20 @@ export default function NowModal({ handleModalState, isDay }) {
                   isDay ? "text-amber-100" : "text-white"
                 } font-merienda text-lg md:text-xl leading-relaxed`}
               >
-                Strengthening{" "}
-                <span className="text-[#50fef6]">
-                  frontend architecture and code quality
-                </span>{" "}
-                by applying best practices for scalability, maintainability, and
-                performance.
-              </p>
-            </div>
-
-            <div className="border border-[#ff7a14]/40 rounded-xl px-4 py-3 bg-black/20">
-              <p
-                className={`${
-                  isDay ? "text-amber-100" : "text-white"
-                } font-merienda text-lg md:text-xl leading-relaxed`}
-              >
-                Building{" "}
-                <span className="text-[#50fef6]">personal projects</span> that
-                blend design, motion, and 3D to push creative boundaries and
-                grow as a developer.
+                Practicing data structures and algorithms to strengthen
+                problem-solving skills and grow as a software engineer. Each
+                challenge helps me think critically, write better code, and
+                build a strong foundation for developing robust and efficient
+                software. You can check my solutions and progress on my
+                <a
+                  href="https://leetcode.com/u/Amitsg4511/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#50fef6]"
+                >
+                  {" "}
+                  LeetCode profile.
+                </a>
               </p>
             </div>
           </section>
