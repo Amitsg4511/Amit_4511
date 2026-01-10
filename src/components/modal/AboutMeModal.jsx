@@ -48,7 +48,8 @@ export default function AboutMeModal({ handleModalState, isDay }) {
           </div>
           <button
             onClick={handleModalState}
-            className="transition w-14 h-14 md:w-18 md:h-18 cursor-pointer"
+            className="transition w-14 h-14 md:w-18 md:h-18 hover:scale-125 
+              hover:rotate-3 cursor-pointer"
           >
             {isDay ? (
               <img src={closeButtonMorning} alt="close button" />

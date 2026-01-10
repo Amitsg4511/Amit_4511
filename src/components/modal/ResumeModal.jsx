@@ -36,8 +36,8 @@ export default function ResumeModal({ handleModalState, isDay }) {
       <div
         ref={modalRef}
         className={`relative z-10
-          w-[90%] sm:w-[85%] md:w-[70%] lg:w-[55%]
-          max-h-[90svh]
+          w-[95%] sm:w-[85%] md:w-[70%] lg:w-[55%]
+          max-h-[95svh]
           ${isDay ? "bg-[#303034]/90" : "bg-zinc-900/90"}
           rounded-2xl
           border-4 border-[#ff7a14]
@@ -69,6 +69,7 @@ export default function ResumeModal({ handleModalState, isDay }) {
               text-[#ff7a14]
               hover:bg-[#ff7a14]/10
               hover:text-[#50fef6]
+              hover:scale-125
               transition
               text-sm sm:text-base
               whitespace-nowrap
@@ -86,6 +87,8 @@ export default function ResumeModal({ handleModalState, isDay }) {
               w-14 h-14
               leading-none
               cursor-pointer
+              hover:scale-125 
+              hover:rotate-3
             "
             >
               {isDay ? (
@@ -117,17 +120,20 @@ export default function ResumeModal({ handleModalState, isDay }) {
           <section>
             <div className="px-3 py-2 flex justify-center items-center rounded-xl mb-3">
               <h3 className="text-[#ff7a14] text-2xl md:text-3xl font-bold underline underline-offset-8 tracking-wide font-science-gothic">
-                Skills
+                Tech Stack
               </h3>
             </div>
 
             <div className="space-y-3">
               {[
-                "React, JavaScript (ES6+), Component Architecture, Hooks, State Management",
+                "Python, JavaScript (ES6+)",
+                "React, Component Architecture, Hooks, State Management",
                 "Three.js, React Three Fiber (R3F), WebGL Basics, 3D Scene Composition",
                 "GSAP Animations, Timelines, Scroll & Interaction-based Motion",
                 "Tailwind CSS, Modern CSS, Responsive & Accessible UI Design",
-                "Git & GitHub, Vite, npm, Performance Optimization",
+                "Node.js, Express.js, JWT, Websocket Basics",
+                "Git & GitHub, Vite, npm",
+                "SQL, SQL Server ,Mongo DB",
               ].map((text, index) => (
                 <div
                   key={index}

@@ -52,7 +52,8 @@ export default function SkillsModal({ handleModalState, isDay }) {
           </div>
           <button
             onClick={handleModalState}
-            className="transition w-14 h-14 md:w-18 md:h-18 cursor-pointer"
+            className="transition w-14 h-14 md:w-18 md:h-18 hover:scale-125 
+              hover:rotate-3 cursor-pointer"
           >
             {isDay ? (
               <img src={closeButtonMorning} alt="close button" />
@@ -93,6 +94,18 @@ export default function SkillsModal({ handleModalState, isDay }) {
             <div className="space-y-4 text-white/80">
               <div>
                 <h4 className="text-white text-xl font-science-gothic font-semibold">
+                  Programming Languages
+                </h4>
+                <p
+                  className={`${
+                    isDay ? "text-amber-100" : "text-white"
+                  } font-merienda text-lg md:text-xl`}
+                >
+                  JavaScript (ES6+), Python
+                </p>
+              </div>
+              <div>
+                <h4 className="text-white text-xl font-science-gothic font-semibold">
                   Frontend Development
                 </h4>
                 <p
@@ -100,8 +113,36 @@ export default function SkillsModal({ handleModalState, isDay }) {
                     isDay ? "text-amber-100" : "text-white"
                   } font-merienda text-lg md:text-xl`}
                 >
-                  React, JavaScript (ES6+), Component Architecture, Hooks, State
-                  Management, Responsive Design, Accessibility Basics
+                  React Component Architecture, Hooks, State Management,
+                  Responsive Design, Accessibility Basics
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-white text-xl font-science-gothic font-semibold">
+                  Backend Development
+                </h4>
+                <p
+                  className={`${
+                    isDay ? "text-amber-100" : "text-white"
+                  } font-merienda text-lg md:text-xl`}
+                >
+                  Node.js, Express.js, RESTful API development, authentication
+                  with JWT, WebSocket basics, API testing and integration
+                  workflows.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-white text-xl font-science-gothic font-semibold">
+                  Database Management
+                </h4>
+                <p
+                  className={`${
+                    isDay ? "text-amber-100" : "text-white"
+                  } font-merienda text-lg md:text-xl`}
+                >
+                  SQL, SQL Server, MongoDB, PostgreSQL basics, query
+                  optimization, indexing fundamentals.
                 </p>
               </div>
 
@@ -115,7 +156,7 @@ export default function SkillsModal({ handleModalState, isDay }) {
                   } font-merienda text-lg md:text-xl`}
                 >
                   Three.js, React Three Fiber (R3F), WebGL Basics, 3D Scene
-                  Composition, Lighting & Materials, Model Optimization
+                  Composition, Lighting & Materials, Model optimization
                 </p>
               </div>
 
@@ -142,8 +183,8 @@ export default function SkillsModal({ handleModalState, isDay }) {
                     isDay ? "text-amber-100" : "text-white"
                   } font-merienda text-lg md:text-xl`}
                 >
-                  Tailwind CSS, Modern CSS, Flexbox, Grid, Design-to-Code
-                  Implementation
+                  Tailwind CSS, Modern CSS, Flexbox, Grid, Design-to-code
+                  implementation
                 </p>
               </div>
 

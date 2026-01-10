@@ -22,7 +22,9 @@ export default function Experience() {
   function handleModalState() {
     setModalState(false);
   }
-  console.log("isready", isSceneReady);
+  useEffect(() => {
+    sessionStorage.removeItem("welcome");
+  }, []);
   function decideModal() {
     if (modalName === "Resume") {
       return <ResumeModal handleModalState={handleModalState} isDay={isDay} />;

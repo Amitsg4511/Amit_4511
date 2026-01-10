@@ -170,11 +170,19 @@ export default function Model({ modalState, isDay, setModalName }) {
       modalState(true);
       setModalName("Skills");
     } else if (mesh.name === "SocialMedia_Raycaster") {
-      window.open("https://www.github.com", "_blank", "noopener,noreferrer");
+      window.open(
+        "https://github.com/Amitsg4511",
+        "_blank",
+        "noopener,noreferrer"
+      );
     } else if (mesh.name === "SocialMedia_Raycaster_3") {
       window.open("https://www.linkedin.com", "_blank", "noopener,noreferrer");
     } else if (mesh.name === "SocialMedia_Raycaster_4") {
-      window.open("https://www.chess.com/", "_blank", "noopener,noreferrer");
+      window.open(
+        "https://www.chess.com/member/The_Exception_India",
+        "_blank",
+        "noopener,noreferrer"
+      );
     } else if (mesh.name === "BabyTintin_Raycaster" && !isDay) {
       const color = COLORS[Math.floor(Math.random() * COLORS.length)];
       mesh.material.color.copy(hexToHDRColor(color, 3));
