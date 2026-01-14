@@ -1,5 +1,6 @@
 import { Html, useProgress } from "@react-three/drei";
 import { useState, useEffect } from "react";
+
 export default function LoadingScreen() {
   const { active, progress } = useProgress();
   const [display, setDisplay] = useState(0);
