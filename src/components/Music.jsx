@@ -5,6 +5,7 @@ import MusicOnNight from "../assets/svg/music-on-night.svg";
 import MusicOnMorning from "../assets/svg/music-on-morning.svg";
 import useBackgroundMusic from "../utils/BackgroundMusic";
 import mountainMusic from "../assets/music/mountains.mp3";
+
 function Music({ isDay }) {
   const [isMusicOn, setMusicState] = useState(false);
   const music = useBackgroundMusic(mountainMusic);
@@ -27,8 +28,9 @@ function Music({ isDay }) {
         ${isDay ? "bg-orange-500" : "bg-gray-700"}
         backdrop-blur-lg
         shadow-xl shadow-black/40
-        hover:-rotate-14 hover:scale-125 
-        transition-transform duration-300 
+        //Need to fix this to make this hover effect touchable friendly
+        md:hover:-rotate-14 md:hover:scale-125 
+        transition-transform duration-500 
       `}
     >
       <button

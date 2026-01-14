@@ -1,9 +1,10 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import ScrambleText from "./ScrambleText";
 import { SplitText } from "gsap/all";
 import Button from "./Button";
+
 function Information() {
   const containerRef = useRef(null);
   const welcomeTextRef = useRef(null);

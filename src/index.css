@@ -25,11 +25,8 @@ body,
 @theme {
   --font-googlecode: "GoogleSansCode", monospace;
   --font-merienda: "Merienda", sans-serif;
-  --font-mukta: "Mukta", sans-serif;
   --font-science-gothic: "ScienceGothic", sans-serif;
   --font-fleur-de-leah: "FleurDeLeah", serif;
-  --font-BBHBogle: "BBHBogle", serif;
-  --font-Jersey: "Jersey", serif;
   --font-Sekuya: "Sekuya", serif;
 }
 
@@ -37,11 +34,8 @@ body,
   /* Font utility classes */
   .font-googlecode { font-family: var(--font-googlesanscode); }
   .font-merienda { font-family: var(--font-merienda); }
-  .font-mukta { font-family: var(--font-mukta); }
   .font-science-gothic { font-family: var(--font-science-gothic); }
   .font-fleur-de-leah { font-family: var(--font-fleur-de-leah); }
-  .font-BBH-Bogle { font-family: var(--font-BBH-Bogle); }
-  .font-Jersey { font-family: var(--font-Jersey); }
   .font-Sekuya { font-family: var(--font-Sekuya); }
   @layer base {
 
@@ -79,17 +73,6 @@ body,
   }
 
   /* ------------------------------
-     MUKTA (multiple TTF weights)
-  ------------------------------- */
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-ExtraLight.ttf") format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
-  @font-face { font-family: "Mukta"; src: url("/fonts/Mukta/Mukta-ExtraBold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
-
-  /* ------------------------------
      SCIENCE GOTHIC (variable)
   ------------------------------- */
   @font-face {
@@ -114,29 +97,7 @@ body,
   }
 
     /* ------------------------------
-     BBH Bogle (regular)
-  ------------------------------- */
-  @font-face {
-    font-family: "BBHBogle";
-    src: url("/fonts/BBH_Bogle/BBHBogle-Regular.ttf")
-         format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-    /* ------------------------------
-     BBH Bogle (regular)
-  ------------------------------- */
-  @font-face {
-    font-family: "Jersey";
-    src: url("/fonts/Jersey_10/Jersey10-Regular.ttf")
-         format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-    /* ------------------------------
-     BBH Bogle (regular)
+     Sekuya (regular)
   ------------------------------- */
   @font-face {
     font-family: "Sekuya";

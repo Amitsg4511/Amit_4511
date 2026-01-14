@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+
 const CodingExperience = () => {
   const codeRef = useRef(null);
   const cursorRef = useRef(null);

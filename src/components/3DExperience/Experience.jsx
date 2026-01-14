@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Model from "./Model";
 import { Suspense, useEffect, useState } from "react";
-import { Perf } from "r3f-perf";
+// import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import { useMediaQuery } from "react-responsive";
 import ResumeModal from "../modal/ResumeModal";
@@ -68,7 +68,7 @@ export default function Experience() {
           outputColorSpace: THREE.SRGBColorSpace,
         }}
       >
-        {!isMobile && <Perf position="top-left" />}
+        {/* {!isMobile && <Perf position="top-left" />} */}
         {!isDay && (
           <EffectComposer>
             <Bloom intensity={0.3} luminanceThreshold={1} mipmapBlur={true} />
@@ -89,7 +89,6 @@ export default function Experience() {
 }
 
 function SceneReady({ onReady }) {
-  console.log(onReady);
   useEffect(() => {
     onReady();
   }, [onReady]);

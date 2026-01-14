@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 function ScrambleText({ exploreExperienceRef }) {
   const hiTextRef = useRef(null);
@@ -26,7 +26,7 @@ function ScrambleText({ exploreExperienceRef }) {
           duration: 1,
           scrambleText: {
             text: "Hi,",
-            chars: "4511",
+            chars: "01",
             ease: "easeCurve",
             revealDelay: 0.3,
             speed: 0.3,
@@ -45,7 +45,7 @@ function ScrambleText({ exploreExperienceRef }) {
             duration: 1,
             scrambleText: {
               text: "I'm",
-              chars: "4511",
+              chars: "01",
               ease: "easeCurve",
               revealDelay: 0.5,
               speed: 0.5,
@@ -59,7 +59,7 @@ function ScrambleText({ exploreExperienceRef }) {
             duration: 3,
             scrambleText: {
               text: "Amit Kumar,",
-              chars: "4511",
+              chars: "OM",
               ease: "easeCurve",
               revealDelay: 0.5,
               speed: 0.3,
@@ -87,7 +87,7 @@ function ScrambleText({ exploreExperienceRef }) {
             duration: 3,
             scrambleText: {
               text: "I'm passionate about continuous learning and exploring new technologies to create solutions that make an impact.",
-              chars: "4511",
+              chars: "01",
               revealDelay: 0.3,
               speed: 0.3,
             },

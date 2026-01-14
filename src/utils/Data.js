@@ -49,7 +49,3 @@ const HOVER_INTERACTION = new Set([
 ]);
 
 export { COLORS, INTERACTIVE_NAMES, HOVER_INTERACTION };
-
-//flowerStem
-//Flowers
-//Hook
