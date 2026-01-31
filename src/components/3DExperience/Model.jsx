@@ -124,8 +124,8 @@ export default function Model({ modalState, isDay, setModalName }) {
     const cameraConfig = isMobile
       ? { pos: [-1.5, -8.5, 14.5], fov: 35 }
       : isTablet
-      ? { pos: [-1, -10.5, 13], fov: 30 }
-      : { pos: [-3, -11, 14], fov: 25 };
+        ? { pos: [-1, -10.5, 13], fov: 30 }
+        : { pos: [-3, -11, 14], fov: 25 };
 
     camera.position.set(...cameraConfig.pos);
     camera.fov = cameraConfig.fov;
@@ -173,15 +173,19 @@ export default function Model({ modalState, isDay, setModalName }) {
       window.open(
         "https://github.com/Amitsg4511",
         "_blank",
-        "noopener,noreferrer"
+        "noopener,noreferrer",
       );
     } else if (mesh.name === "SocialMedia_Raycaster_3") {
-      window.open("https://www.linkedin.com", "_blank", "noopener,noreferrer");
+      window.open(
+        "https://www.linkedin.com/in/amit4511/",
+        "_blank",
+        "noopener,noreferrer",
+      );
     } else if (mesh.name === "SocialMedia_Raycaster_4") {
       window.open(
         "https://www.chess.com/member/The_Exception_India",
         "_blank",
-        "noopener,noreferrer"
+        "noopener,noreferrer",
       );
     } else if (mesh.name === "BabyTintin_Raycaster" && !isDay) {
       const color = COLORS[Math.floor(Math.random() * COLORS.length)];
