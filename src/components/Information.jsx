@@ -28,7 +28,7 @@ function Information() {
           ease: "sine.inOut",
         });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
   useGSAP(
     () => {
@@ -50,19 +50,19 @@ function Information() {
         },
       });
     },
-    { scope: welcomeTextRef }
+    { scope: welcomeTextRef },
   );
 
   return (
     <div
       ref={containerRef}
-      className="relative h-svh w-full flex lg:p-5 p-3"
+      className="relative h-svh w-full flex p-3"
       style={{ clipPath: "polygon(51% 0, 51% 0%, 51% 100%, 51% 100%)" }}
     >
-      <div className="flex flex-col items-center-safe md:justify-center-safe w-full max-sm:mt-5">
+      <div className="flex flex-col md:mt-14 items-center-safe w-full max-sm:mt-5">
         <div
           ref={welcomeTextRef}
-          className="relative inline-block group md:bottom-9 max-sm:w-[90%] text-center"
+          className="relative inline-block group max-sm:w-[90%] text-center"
         >
           <div
             aria-hidden
@@ -83,12 +83,12 @@ function Information() {
           </h1>
         </div>
 
-        <div className="lg:max-w-[51%] max-w-[95%] lg:mt-14 md:mt-9 mt-5 font-merienda lg:text-3xl md:text-2xl p-3 lg:p-5 leading-relaxed">
+        <div className="lg:max-w-[75%] max-w-[95%] mt-5 font-merienda lg:text-3xl md:text-2xl p-3 lg:p-5 leading-relaxed">
           <ScrambleText exploreExperienceRef={exploreExperienceRef} />
         </div>
         <div
           ref={exploreExperienceRef}
-          className="lg:mt-14 md:mt-11 md:text-3xl text-xl text-white flex flex-col items-center"
+          className="md:text-3xl text-xl text-white flex flex-col items-center"
         >
           <div className="max-sm:w-1/2 bottom-3 relative">
             <Button>Explore</Button>

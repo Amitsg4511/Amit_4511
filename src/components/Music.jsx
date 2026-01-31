@@ -7,7 +7,7 @@ import useBackgroundMusic from "../utils/BackgroundMusic";
 import mountainMusic from "../assets/music/mountains.mp3";
 
 function Music({ isDay }) {
-  const [isMusicOn, setMusicState] = useState(false);
+  const [isMusicOn, setMusicState] = useState(true);
   const music = useBackgroundMusic(mountainMusic);
   function handleMusicState() {
     setMusicState((prevMusicState) => !prevMusicState);
